@@ -12,14 +12,6 @@ import java.util.UUID;
 public class ProductRepository {
     private List<Product> productData = new ArrayList<>();
 
-    public Product create(Product product) {
-        if (product.getProductId() == null) {
-            product.setProductId(UUID.randomUUID().toString());
-        }
-        productData.add(product);
-        return product;
-    }
-
     public Iterator<Product> findAll() {
         return productData.iterator();
     }
@@ -33,6 +25,14 @@ public class ProductRepository {
         return null;
     }
 
+    public Product create(Product product) {
+        if (product.getProductId() == null) {
+            product.setProductId(UUID.randomUUID().toString());
+        }
+        productData.add(product);
+        return product;
+    }
+
     public Product edit(Product product) {
         for (int i = 0; i < productData.size(); i++) {
             Product p = productData.get(i);
@@ -42,5 +42,11 @@ public class ProductRepository {
             }
         }
         return null;
+    }
+
+    public Product delete(String id) {
+        Product product = findById(id);
+        productData.remove(product);
+        return product;
     }
 }
