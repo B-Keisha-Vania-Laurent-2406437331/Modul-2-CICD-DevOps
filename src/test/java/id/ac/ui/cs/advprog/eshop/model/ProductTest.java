@@ -43,4 +43,6 @@ class ProductTest {
         // program belum ada validasi untuk quantity negatif
         assertEquals(-10, product.getProductQuantity());
     }
+
+
 }
