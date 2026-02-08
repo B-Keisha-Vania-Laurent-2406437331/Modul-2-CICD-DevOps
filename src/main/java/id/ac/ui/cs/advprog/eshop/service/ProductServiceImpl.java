@@ -15,12 +15,6 @@ public class ProductServiceImpl implements ProductService {
     private ProductRepository productRepository;
 
     @Override
-    public Product create(Product product) {
-        productRepository.create(product);
-        return product;
-    }
-
-    @Override
     public List<Product> findAll() {
         Iterator<Product> productIterator = productRepository.findAll();
         List<Product> allProduct = new ArrayList<>();
@@ -34,7 +28,18 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public Product create(Product product) {
+        productRepository.create(product);
+        return product;
+    }
+
+    @Override
     public Product edit(Product product) {
         return productRepository.edit(product);
+    }
+
+    @Override
+    public Product delete(String productId) {
+        return productRepository.delete(productId);
     }
 }
