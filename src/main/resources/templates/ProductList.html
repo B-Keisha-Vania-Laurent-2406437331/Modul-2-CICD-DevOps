@@ -7,28 +7,49 @@
 </head>
 <body>
 
-<div class="container my-2">
-    <h2>Product' List</h2>
-    <a th:href="@{/product/create}" class="btn btn-primary btn-sm mb-3">Create Product</a>
+<div class="container my-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-white d-flex justify-content-between align-items-center py-3">
+            <h4 class="m-0 font-weight-bold text-primary">Product List</h4>
+            <a th:href="@{/product/create}" class="btn btn-primary btn-sm">
+                + Create Product
+            </a>
+        </div>
 
-    <table border="1" class="table table-striped table-responsive-md">
-        <thead>
-        <tr>
-            <th scope="col">Product Name</th>
-            <th scope="col">Quantity</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="product: ${products}">
-            <td th:text="${product.productName}"></td>
-            <td th:text="${product.productQuantity}"></td>
-            <td>
-                <a th:href="@{/product/edit/{id}(id=${product.productId})}">Edit</a>
-                <a th:href="@{/product/delete/{id}(id=${product.productId})}">Delete</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col" style="width: 20%; text-align: center;">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="product: ${products}">
+                        <td class="align-middle" th:text="${product.productName}"></td>
+                        <td class="align-middle" th:text="${product.productQuantity}"></td>
+                        <td class="text-center">
+                            <a th:href="@{/product/edit/{id}(id=${product.productId})}"
+                               class="btn btn-warning btn-sm text-white mr-1">
+                                Edit
+                            </a>
+                            <a th:href="@{/product/delete/{id}(id=${product.productId})}"
+                               class="btn btn-danger btn-sm"
+                               onclick="return confirm('Are you sure you want to delete this item?');">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                    <tr th:if="${#lists.isEmpty(products)}">
+                        <td colspan="3" class="text-center text-muted">No products available.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
