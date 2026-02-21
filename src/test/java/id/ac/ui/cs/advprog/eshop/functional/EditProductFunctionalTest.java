@@ -39,7 +39,7 @@ class EditProductFunctionalTest {
     }
 
     @Test
-    void editProduct_isWorking_andUpdatesList(ChromeDriver driver) throws Exception {
+    void editProduct_isWorking_andUpdatesList(ChromeDriver driver) {
 
         String initialName = "Produk Salah Nama";
         createProductForTest(driver, initialName);
