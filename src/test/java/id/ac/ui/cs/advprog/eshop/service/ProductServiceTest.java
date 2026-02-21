@@ -18,9 +18,7 @@ class ProductServiceTest {
     @BeforeEach
     void setUp() {
         productRepository = new ProductRepository();
-        productService = new ProductServiceImpl();
-
-        ReflectionTestUtils.setField(productService, "productRepository", productRepository);
+        productService = new ProductServiceImpl(productRepository);
     }
 
     @Test
