@@ -12,7 +12,6 @@ on:
   schedule:
     - cron: '33 13 * * 2'
   push:
-    branches: [ "main", "ci-cd" ]
 
 # Declare default permissions as read only.
 permissions: read-all
