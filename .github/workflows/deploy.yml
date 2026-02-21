@@ -21,4 +21,4 @@ jobs:
         env:
           KOYEB_TOKEN: ${{ secrets.KOYEB_TOKEN }}
         run: |
-          koyeb service update eshop-kurrorro/eshop-kurrorro --git-branch main
+          koyeb service update bewildered-essa/eshop-kurrorro --git-branch main
