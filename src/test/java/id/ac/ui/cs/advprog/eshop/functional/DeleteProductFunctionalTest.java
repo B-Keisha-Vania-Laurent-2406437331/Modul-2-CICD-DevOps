@@ -40,7 +40,7 @@ class DeleteProductFunctionalTest {
     }
 
     @Test
-    void deleteProduct_isWorking_andRemovesFromList(ChromeDriver driver) throws Exception {
+    void deleteProduct_isWorking_andRemovesFromList(ChromeDriver driver) {
         String nameToDelete = "Produk Dibuang Sayang";
         createProductForTest(driver, nameToDelete);
 

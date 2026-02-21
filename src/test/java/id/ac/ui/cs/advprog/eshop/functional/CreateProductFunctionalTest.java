@@ -32,7 +32,7 @@ class CreateProductFunctionalTest {
     }
 
     @Test
-    void createProductPage_titleIsCorrect(ChromeDriver driver) throws Exception {
+    void createProductPage_titleIsCorrect(ChromeDriver driver) {
         driver.get(baseUrl + "/product/create");
         String pageTitle = driver.getTitle();
 
@@ -40,7 +40,7 @@ class CreateProductFunctionalTest {
     }
 
     @Test
-    void createProductForm_elementsAreDisplayed(ChromeDriver driver) throws Exception {
+    void createProductForm_elementsAreDisplayed(ChromeDriver driver) {
         driver.get(baseUrl + "/product/create");
 
         WebElement nameInput = driver.findElement(By.id("nameInput"));
@@ -54,7 +54,7 @@ class CreateProductFunctionalTest {
     }
 
     @Test
-    void createProduct_isWorking_andAppearsInList(ChromeDriver driver) throws Exception {
+    void createProduct_isWorking_andAppearsInList(ChromeDriver driver) {
         driver.get(baseUrl + "/product/create");
 
         // input

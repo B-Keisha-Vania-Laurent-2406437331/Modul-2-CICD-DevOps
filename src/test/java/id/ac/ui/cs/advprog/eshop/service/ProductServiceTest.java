@@ -4,7 +4,6 @@ import id.ac.ui.cs.advprog.eshop.model.Product;
 import id.ac.ui.cs.advprog.eshop.repository.ProductRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.test.util.ReflectionTestUtils;
 
 import java.util.List;
 
@@ -18,9 +17,7 @@ class ProductServiceTest {
     @BeforeEach
     void setUp() {
         productRepository = new ProductRepository();
-        productService = new ProductServiceImpl();
-
-        ReflectionTestUtils.setField(productService, "productRepository", productRepository);
+        productService = new ProductServiceImpl(productRepository);
     }
 
     @Test
